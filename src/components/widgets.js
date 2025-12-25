@@ -4,7 +4,6 @@ import Card from './Card';
 import Chart from './Chart';
 import Table from './Table';
 
-// --- Registry ---
 
 const components = {
     card: Card,
