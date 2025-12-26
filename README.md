@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# FinBoard - Personal Finance Dashboard
 
-## Getting Started
+FinBoard is a modular, high-performance financial dashboard built for the **Groww Web Intern Assignment**. It allows users to monitor stocks and cryptocurrencies in real-time with a customizable, durable interface.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+*   **Real-Time Data**: Integrates with [Finnhub API](https://finnhub.io/) for live stock/crypto data.
+*   **Dynamic Widgets**:
+    *   **Stat Cards**: Quick price/change overview.
+    *   **Price Charts**: Visual trend analysis (simulated history).
+    *   **Data Tables**: Detailed daily statistics.
+*   **Customization**: Add, remove, and configure widgets (Title, Symbol, Refresh Rate).
+*   **Dark Mode**: A premium, system-wide dark theme (Persisted).
+*   **Persistence**: Uses `localStorage` to save your dashboard layout and settings locally.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Tech Stack
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+*   **Framework**: Next.js 16 (App Router)
+*   **Styling**: Tailwind CSS 4.0
+*   **State Management**: Redux Toolkit (RTK) + React-Redux
+    *   *Why Redux?* Used for robust global state management of Theme and Widget Registry.
+*   **Icons**: SVGs (No heavy ion libraries)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📦 Architecture
 
-## Learn More
+The project follows a scalable, "human-readable" directory structure:
 
-To learn more about Next.js, take a look at the following resources:
+*   `src/store/`: Redux slices (`themeSlice`, `dashboardSlice`) and store configuration.
+*   `src/components/widgets/`: Independent, reusable widget components (`Card`, `Chart`, `Table`).
+*   `src/components/`: Core UI components (`Dashboard`, `AddWidgetModal`).
+*   `src/utils/`: API helpers and utilities.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🏃‍♂️ Running Locally
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1.  **Clone the repository**
+2.  **Install dependencies**:
+    ```bash
+    npm install
+    ```
+3.  **Run the dev server**:
+    ```bash
+    npm run dev
+    ```
+4.  Open [http://localhost:3000](http://localhost:3000)
 
-## Deploy on Vercel
+## ✅ Evaluation Checklist
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+-   [x] **Next.js & Tailwind**: Used as core foundation.
+-   [x] **Redux Integration**: Implemented for state management.
+-   [x] **Dynamic Widgets**: Configurable symbols and types.
+-   [x] **Persistence**: Dashboard returns to its last state on reload.
+-   [x] **Dark Mode**: Fully supported.
+-   [x] **Clean Code**: Modular, readable, and well-structured.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+*Built with ❤️ for Groww.*
