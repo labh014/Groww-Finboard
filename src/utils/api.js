@@ -1,4 +1,4 @@
-const key = "d560k8pr01qu3qo7lhvgd560k8pr01qu3qo7li00";
+const key = process.env.NEXT_PUBLIC_FINNHUB_API_KEY;
 
 export const getPrice = async (symbol) => {
     if (!symbol) return null;
@@ -8,7 +8,7 @@ export const getPrice = async (symbol) => {
         const res = await fetch(url, { cache: 'no-store' });
         const data = await res.json();
 
- 
+
         if (!data || typeof data.c === 'undefined' || data.c === 0) {
             return null;
         }
