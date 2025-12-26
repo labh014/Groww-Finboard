@@ -7,13 +7,19 @@ export const getPrice = async (symbol) => {
         const url = `https://finnhub.io/api/v1/quote?symbol=${symbol}&token=${key}&_t=${Date.now()}`;
         const res = await fetch(url, { cache: 'no-store' });
         const data = await res.json();
+
+ 
+        if (!data || typeof data.c === 'undefined' || data.c === 0) {
+            return null;
+        }
+
         return {
             price: data.c,
-            change: data.dp,
-            high: data.h,
-            low: data.l,
-            open: data.o,
-            prev: data.pc
+            change: data.dp || 0,
+            high: data.h || data.c,
+            low: data.l || data.c,
+            open: data.o || data.c,
+            prev: data.pc || data.c
         };
     } catch (e) {
         console.log("Error fetching price:", e);
